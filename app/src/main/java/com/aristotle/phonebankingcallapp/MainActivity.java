@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText userEmailID, password;
     private Button sbmtButton;
+    String status;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,17 +54,30 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 login(userEmailID, password);
             }
-        });}
+        });
+
+        if(status.equals("true"))
+        {
+            setContentView(R.layout.activity_my_profile);
+        }
+
+
+
+    }
 
         public  String login(EditText emailID, EditText password){
 
-     OpenURL openurl = new OpenURL();
-            openurl.execute();
+              if(emailID.equals("rsmritimurty@gmail.com") && password.equals("alchemist")){
+                  OpenURL openurl = new OpenURL();
+                   status = String.valueOf(openurl.execute());
+
+                }else{
+                  Toast.makeText(this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
+                  status = null;
+                }
+
+        return status;
+        }
 
 
-    return "Parth";
-
-    }
-
-
-    }
+}
