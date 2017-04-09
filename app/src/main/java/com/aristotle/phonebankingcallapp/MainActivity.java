@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                       if (status.equals("true")) {
                           String extra= "com.aristotle.phonebankingcallapp.MyProfile";
                           Intent intent= new Intent(this, MyProfile.class);
+
                           intent.putExtra(extra, message);
                           startActivity(intent);
 //                          setContentView(R.layout.activity_my_profile);
