@@ -36,9 +36,11 @@ import static com.aristotle.phonebankingcallapp.R.id.text;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     private EditText userEmailID, password;
     private Button sbmtButton;
-    String status;
+    String status=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,10 +58,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        if(status.equals("true"))
-        {
-            setContentView(R.layout.activity_my_profile);
-        }
+
 
 
 
@@ -67,17 +66,32 @@ public class MainActivity extends AppCompatActivity {
 
         public  String login(EditText emailID, EditText password){
 
-              if(emailID.equals("rsmritimurty@gmail.com") && password.equals("alchemist")){
-                  OpenURL openurl = new OpenURL();
-                   status = String.valueOf(openurl.execute());
+              if(emailID.getText().toString().equals("rsmritimurty@gmail.com") && password.getText().toString().equals("alchemist")) {
+                  try {
+                      OpenURL openurl = new OpenURL();
+                      String status = openurl.execute().get().toString();
 
-                }else{
+                      // status = String.valueOf(openurl.doInBackground());
+                      // System.out.println(openurl.execute());
+                      System.out.println(OpenURL.token + " : status");
+                      if (status.equals("true")) {
+                          setContentView(R.layout.activity_my_profile);
+                      }
+
+                  } catch (Exception e) {
+                      e.printStackTrace();
+                  }
+              }else{
+
                   Toast.makeText(this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
-                  status = null;
+
+                  }
+
+            return null;
                 }
 
-        return status;
+
         }
 
 
-}
+

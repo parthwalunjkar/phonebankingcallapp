@@ -8,13 +8,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Scanner;
 
 /**
  * Created by Admin on 4/7/2017.
  */
 
-class OpenURL extends AsyncTask {
+public class OpenURL extends AsyncTask {
 
+    public static String token;
 
     private Context applicationContext;
     private Object savedInstanceState;
@@ -37,6 +39,7 @@ class OpenURL extends AsyncTask {
             System.out.println("url open con ");
             InputStream in = urlConnection.getInputStream();
             System.out.println(in);
+
             if(in==null)
             {
                 Context c = getApplicationContext();
@@ -45,16 +48,25 @@ class OpenURL extends AsyncTask {
             }
             else
             {
+                Scanner s = new Scanner(in).useDelimiter("\\A");
+                  token = s.hasNext()?s.next():"";
+                System.out.println(token);
+                System.out.println("else");
                 //super.onCreate(savedInstanceState);
+            //    setContentView(R.layout.activity_my_profile);
                 return true;
+                //System.out.println("post return");
             }
 
         }
         catch(IOException e){
             e.printStackTrace();
+            return null;
         }
-
-        return null;
+    finally {
+            System.out.println("end");
+        }
+      //  return null;
     }
 
 
