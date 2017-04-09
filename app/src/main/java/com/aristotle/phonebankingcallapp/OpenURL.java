@@ -23,6 +23,7 @@ import java.util.Scanner;
 public class OpenURL extends AsyncTask {
 
     public static String token;
+    public static JSONArray jArray;
     public static JSONObject jtoken;
     private Context applicationContext;
     private Object savedInstanceState;
@@ -59,12 +60,12 @@ public class OpenURL extends AsyncTask {
                     Scanner s = new Scanner(in).useDelimiter("\\A");
                     String response = s.hasNext() ? s.next() : "";
 
-                    jtoken = (JSONObject) new JSONTokener(response).nextValue();
+                    jArray = (JSONArray) new JSONTokener(response).nextValue();
                     //JSONArray jsonArray = new JSONArray(token);
                     //List<String> list = new ArrayList<String>();
-                        token=  jtoken.getString("token");
-
-
+                        String strtoken=  jArray.getString(0);
+                        jtoken = (JSONObject) new JSONTokener(strtoken).nextValue();
+                        token= jtoken.getString("token");
 
                   /*  Scanner s = new Scanner(in).useDelimiter("\\A");
                     token = s.hasNext() ? s.next() : "";*/
