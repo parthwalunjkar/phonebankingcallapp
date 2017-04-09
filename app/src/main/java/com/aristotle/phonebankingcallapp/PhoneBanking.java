@@ -11,7 +11,7 @@ public class PhoneBanking extends AppCompatActivity {
         setContentView(R.layout.activity_phone_banking);
         System.out.println("PhoneBanking");
 
-        
+
 
 
     }
