@@ -3,6 +3,7 @@ package com.aristotle.phonebankingcallapp;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,6 +32,7 @@ import java.net.URLConnection;
 import javax.net.ssl.HttpsURLConnection;
 
 import static android.R.attr.duration;
+import static android.R.id.message;
 import static com.aristotle.phonebankingcallapp.R.id.text;
 
 
@@ -75,7 +77,12 @@ public class MainActivity extends AppCompatActivity {
                       // System.out.println(openurl.execute());
                       System.out.println(OpenURL.token + " : status");
                       if (status.equals("true")) {
-                          setContentView(R.layout.activity_my_profile);
+                          String extra= "com.aristotle.phonebankingcallapp.MyProfile";
+                          Intent intent= new Intent(this, MyProfile.class);
+                          intent.putExtra(extra, message);
+                          startActivity(intent);
+//                          setContentView(R.layout.activity_my_profile);
+
                       }
 
                   } catch (Exception e) {
