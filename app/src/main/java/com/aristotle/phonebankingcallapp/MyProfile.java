@@ -43,6 +43,15 @@ public class MyProfile extends AppCompatActivity {
             }
         });
 
+        btnMyProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String extra= "com.aristotle.phonebankingcallapp.ViewProfile";
+                Intent intent= new Intent(v.getContext(), ViewProfile.class);
+                intent.putExtra(extra, message);
+                startActivity(intent);
+            }
+        });
 
     }
 
