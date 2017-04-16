@@ -44,7 +44,7 @@ import static com.aristotle.phonebankingcallapp.R.id.text;
 public class MainActivity extends AppCompatActivity {
 
 
-    private EditText userEmailID, password;
+    public static EditText CustID, password;
     private Button sbmtButton;
     String status = null;
 
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        userEmailID = (EditText) findViewById(R.id.txtEmailID);
+        CustID = (EditText) findViewById(R.id.txtCustID);
         password = (EditText) findViewById(R.id.txtPwd);
 
         sbmtButton = (Button) findViewById(R.id.btnSubmit);
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    login(userEmailID, password);
+                    login(CustID, password);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -73,9 +73,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public String login(EditText emailID, EditText password) throws JSONException, ExecutionException, InterruptedException {
+    public String login(EditText custID, EditText password) throws JSONException, ExecutionException, InterruptedException {
 
-        if (emailID.getText().toString().equals("rsmritimurty@gmail.com") && password.getText().toString().equals("alchemist")) {
+        if (custID.getText().toString().equals("33336562") && password.getText().toString().equals("alchemist")) {
             try {
                 OpenURL openurl = new OpenURL();
                 String status = openurl.execute().get().toString();

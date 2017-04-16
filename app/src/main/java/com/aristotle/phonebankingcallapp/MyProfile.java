@@ -23,9 +23,9 @@ public class MyProfile extends AppCompatActivity {
 
         TextView txtwelcome = (TextView) findViewById(R.id.textView);
 
-        txtwelcome.setText("Welcome Aristotle");
+        txtwelcome.setText("Welcome "+MainActivity.CustID.getText());
 
-        setTitle("Welcome Aristotle");
+        setTitle("Welcome "+MainActivity.CustID.getText());
 
 
         Button btnPhoneBanking= (Button) findViewById(R.id.btnPhoneBanking);
