@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     public static EditText CustID, password;
     private Button sbmtButton;
     String status = null;
+    public static String customerID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,11 +76,11 @@ public class MainActivity extends AppCompatActivity {
 
     public String login(EditText custID, EditText password) throws JSONException, ExecutionException, InterruptedException {
 
-        if (custID.getText().toString().equals("33336562") && password.getText().toString().equals("alchemist")) {
+        if ((custID.getText().toString().equals("33336562")||custID.getText().toString().equals("33336561")) && password.getText().toString().equals("alchemist")) {
             try {
                 OpenURL openurl = new OpenURL();
+                customerID= custID.getText().toString();
                 String status = openurl.execute().get().toString();
-
                 // status = String.valueOf(openurl.doInBackground());
                 // System.out.println(openurl.execute());
                 System.out.println(OpenURL.token + " : status");
