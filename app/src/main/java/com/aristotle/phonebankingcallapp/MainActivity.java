@@ -2,6 +2,7 @@ package com.aristotle.phonebankingcallapp;
 
 
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private Button sbmtButton;
     String status = null;
     public static String customerID;
-
+    @TargetApi(17)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

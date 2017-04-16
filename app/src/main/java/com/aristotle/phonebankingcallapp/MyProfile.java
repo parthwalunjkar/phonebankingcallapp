@@ -1,5 +1,6 @@
 package com.aristotle.phonebankingcallapp;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import static android.R.id.message;
 
 public class MyProfile extends AppCompatActivity {
 
+    @TargetApi(17)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
