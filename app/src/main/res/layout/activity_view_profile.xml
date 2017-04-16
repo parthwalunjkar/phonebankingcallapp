@@ -122,7 +122,7 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="KYC Date"
+        android:text="KYC Type"
         tools:layout_constraintBottom_creator="1"
         android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
