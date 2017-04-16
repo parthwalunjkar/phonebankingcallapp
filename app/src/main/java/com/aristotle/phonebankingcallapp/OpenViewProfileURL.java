@@ -17,6 +17,9 @@ import java.util.Scanner;
 
 public class OpenViewProfileURL extends AsyncTask {
 
+
+    public static String name,docNum,docType, kycType,expiryDate ;
+
     @Override
     protected Object doInBackground(Object[] params) {
 
@@ -24,7 +27,7 @@ public class OpenViewProfileURL extends AsyncTask {
         String url2 = "https://kycdetails.mybluemix.net/banking/icicibank/getKYC?client_id=rsmritimurty@gmail.com&cust_id=33336562&token="+OpenURL.token;
         System.out.println("url defined");
 
-        String name,docNum,docType, kycType,expiryDate ;
+
         JSONArray jProfArray;
         JSONObject jtoken;
 
@@ -56,10 +59,11 @@ public class OpenViewProfileURL extends AsyncTask {
                 expiryDate= jtoken.getString("Expirydate on document");
 
                 System.out.println(name+" "+docNum+" "+docType+" "+kycType+" "+expiryDate);
-
+                return true;
             }
             else{
                 System.out.println("Details are not available. Please check again.!");
+                return false;
             }
 
 
@@ -69,8 +73,10 @@ public class OpenViewProfileURL extends AsyncTask {
         catch(Exception e)
         {
             e.printStackTrace();
+
+            return false;
         }
 
-        return null;
+//        return null;
     }
 }
