@@ -32,7 +32,7 @@ public class ViewProfile extends AppCompatActivity {
             System.out.println("All Done");
             if (status.equals("true"))
             {
-                setTitle("Details for "+MainActivity.CustID.getText());
+                setTitle("Details for "+MainActivity.name);
                 name.setText(OpenViewProfileURL.name);
                 //System.out.println(name);
                 docNum.setText(OpenViewProfileURL.docNum);

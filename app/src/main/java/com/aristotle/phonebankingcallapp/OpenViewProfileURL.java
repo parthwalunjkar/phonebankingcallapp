@@ -24,7 +24,7 @@ public class OpenViewProfileURL extends AsyncTask {
     protected Object doInBackground(Object[] params) {
 
         System.out.println("Inside ViewProfile");
-        String url2 = "https://kycdetails.mybluemix.net/banking/icicibank/getKYC?client_id=rsmritimurty@gmail.com&cust_id="+MainActivity.customerID+"&token="+OpenURL.token;
+        String url2 = "https://kycdetails.mybluemix.net/banking/icicibank/getKYC?client_id=rsmritimurty@gmail.com&cust_id="+MainActivity.CustomerID+"&token="+OpenURL.token;
         System.out.println("url defined");
 
 

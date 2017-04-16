@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     public static EditText CustID, password;
     private Button sbmtButton;
     String status = null;
-    public static String customerID;
+    public static String name, CustomerID;
     @TargetApi(17)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,13 +60,15 @@ public class MainActivity extends AppCompatActivity {
         CustID = (EditText) findViewById(R.id.txtCustID);
         password = (EditText) findViewById(R.id.txtPwd);
 
+       // System.out.println(CustomerID);
         sbmtButton = (Button) findViewById(R.id.btnSubmit);
 
         sbmtButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    login(CustID, password);
+                    CustomerID=CustID.getText().toString();
+                    login(CustomerID, password);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -77,12 +79,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public String login(EditText custID, EditText password) throws JSONException, ExecutionException, InterruptedException {
+    public String login(String custID, EditText password) throws JSONException, ExecutionException, InterruptedException {
 
-        if ((custID.getText().toString().equals("33336562")||custID.getText().toString().equals("33336561")) && password.getText().toString().equals("alchemist")) {
+       // System.out.println("hello"+custID);
+
+        if ((custID.equals("33336562")||custID.equals("33336561")) && password.getText().toString().equals("alchemist")) {
             try {
                 OpenURL openurl = new OpenURL();
-                customerID= custID.getText().toString();
+
+                if(custID.equals("33336562")){
+                    name="Parth";
+                }
+                else if(custID.equals("33336561"))
+                {
+                    name="Smriti";
+                }
+
+
                 String status = openurl.execute().get().toString();
                 // status = String.valueOf(openurl.doInBackground());
                 // System.out.println(openurl.execute());
@@ -113,6 +126,13 @@ public class MainActivity extends AppCompatActivity {
 
             return null;
         }
+        else if(custID.equals("")) {
+        Toast.makeText(this, "Userid cannot be blank",Toast.LENGTH_SHORT).show();
+        }
+        else if(password.getText().toString().equals("")){
+            Toast.makeText(this, "Password cannot be blank",Toast.LENGTH_SHORT).show();
+        }
+
         else {
 
             Toast.makeText(this, "Incorrect username or password", Toast.LENGTH_SHORT).show();

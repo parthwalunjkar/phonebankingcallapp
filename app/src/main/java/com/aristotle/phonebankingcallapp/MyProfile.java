@@ -29,9 +29,9 @@ public class MyProfile extends AppCompatActivity {
 
         TextView txtwelcome = (TextView) findViewById(R.id.textView);
 
-        txtwelcome.setText("Welcome "+MainActivity.CustID.getText());
+        txtwelcome.setText("Welcome "+MainActivity.name);
 
-        setTitle("Welcome "+MainActivity.CustID.getText());
+        setTitle("Welcome "+MainActivity.name);
 
 
         Button btnPhoneBanking= (Button) findViewById(R.id.btnPhoneBanking);
@@ -70,14 +70,14 @@ public class MyProfile extends AppCompatActivity {
         dialogBuilder.setPositiveButton("Logout", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(MyProfile.this, "Logged out", Toast.LENGTH_SHORT).show();
+
                 OpenURL.token= null;
                 MyProfile.super.onBackPressed();
 
                 MainActivity.CustID.setText("");
                 MainActivity.password.setText("");
                 MainActivity.CustID.requestFocus();
-
+                Toast.makeText(MyProfile.this, "Logged out", Toast.LENGTH_SHORT).show();
             }
         });
 
