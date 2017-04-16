@@ -6,56 +6,89 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.aristotle.phonebankingcallapp.PhoneBanking"
-    tools:layout_editor_absoluteY="0dp"
+    tools:layout_editor_absoluteY="81dp"
     tools:layout_editor_absoluteX="0dp">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
-        android:text="TextView"
-        tools:layout_editor_absoluteY="16dp"
-        tools:layout_editor_absoluteX="177dp" />
+        android:text="Welcome"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Menu"
-        android:layout_marginEnd="11dp"
-        tools:layout_editor_absoluteY="58dp"
-        tools:layout_editor_absoluteX="179dp" />
+        android:text="Click an option to Call phone banking service : "
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginTop="33dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
+        app:layout_constraintTop_toBottomOf="@+id/textClock" />
 
     <TextClock
         android:id="@+id/textClock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
         android:layout_marginStart="16dp"
-        tools:layout_editor_absoluteY="58dp"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        android:layout_marginLeft="16dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/savingsacc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="My Savings Account"
-        android:layout_marginStart="16dp"
-        tools:layout_editor_absoluteY="103dp"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintTop_toBottomOf="@+id/textClock"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="25dp"
+        android:onClick="onClick"
+        android:clickable="true"/>
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="61dp"
-        android:layout_height="36dp"
+        android:id="@+id/loanacc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="My Loan Account "
-        android:layout_marginStart="83dp"
-        tools:layout_editor_absoluteY="192dp"
-        tools:layout_editor_absoluteX="16dp" />
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="76dp"
+        app:layout_constraintTop_toBottomOf="@+id/savingsacc"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="25dp"
+        android:onClick="onClick"
+        android:clickable="true"/>
 
     <TextView
-        android:id="@+id/textView7"
-        android:layout_width="0dp"
-        android:layout_height="9dp"
+        android:id="@+id/cards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="My Cards"
-        tools:layout_editor_absoluteY="298dp"
-        tools:layout_editor_absoluteX="16dp" />
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="96dp"
+        app:layout_constraintTop_toBottomOf="@+id/loanacc"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="25dp"
+        android:onClick="onClick"
+        android:clickable="true"/>
+
+
 </android.support.constraint.ConstraintLayout>
