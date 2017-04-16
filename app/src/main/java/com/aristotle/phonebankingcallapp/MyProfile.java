@@ -1,13 +1,17 @@
 package com.aristotle.phonebankingcallapp;
 
+import android.Manifest;
 import android.annotation.TargetApi;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -56,5 +60,39 @@ public class MyProfile extends AppCompatActivity {
         });
 
     }
+
+    public void onBackPressed()
+    {
+        AlertDialog.Builder dialogBuilder=new AlertDialog.Builder(this);
+        dialogBuilder.setCancelable(false);
+        dialogBuilder.setTitle("Logout");
+        dialogBuilder.setMessage("Do you want to logout?");
+        dialogBuilder.setPositiveButton("Logout", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MyProfile.this, "Logged out", Toast.LENGTH_SHORT).show();
+                OpenURL.token= null;
+                MyProfile.super.onBackPressed();
+
+                MainActivity.CustID.setText("");
+                MainActivity.password.setText("");
+                MainActivity.CustID.requestFocus();
+
+            }
+        });
+
+        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        AlertDialog alert=dialogBuilder.create();
+        alert.show();
+
+    }
+
+
 
 }
