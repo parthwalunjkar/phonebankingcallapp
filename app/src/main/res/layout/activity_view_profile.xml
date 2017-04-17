@@ -147,4 +147,16 @@
         app:layout_constraintTop_toTopOf="@+id/textView8"
         android:layout_marginLeft="16dp" />
 
+    <Button
+        android:id="@+id/btncalltokyc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Call us"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnUpdateProfile"
+        tools:layout_constraintBaseline_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="271dp" />
+
 </android.support.constraint.ConstraintLayout>
